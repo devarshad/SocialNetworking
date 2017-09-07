@@ -1,0 +1,153 @@
+﻿@model DataTypes.AboutPageModel
+<style>
+    .tab-content {
+        border: 1px solid #ddd;
+        border-top: none;
+        padding: 10px;
+    }
+</style>
+<div class="profile-detail partialView-container">
+    <div class="profile-pane">
+        <div class="profile-pane-header">
+            <p>
+                About Me...
+            </p>
+        </div>
+        @using (Html.BeginForm("SaveAbout", "Page", FormMethod.Post, new { role = "form", @class = "SaveProfileDetail" }))
+        {
+            @Html.AntiForgeryToken()
+            @*@Html.ValidationSummary(false, "Please fix following error", new { @class = "text-danger" }, "strong")*@
+            <div class="form-horizsontal">
+                @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active"><a data-toggle="tab" href="#basic">Basic</a></li>
+                    <li><a data-toggle="tab" href="#profession">Profession</a></li>
+                    <li><a data-toggle="tab" href="#likes">Likes</a></li>
+                    <li><a data-toggle="tab" href="#personal">Personal</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="basic" class="tab-pane fade in active">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Nick name:</label>
+                            @Html.EditorFor(model => model.NickName, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Enter Nick name" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Phone number:</label>
+                            @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Enter Phone number" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Skype name:</label>
+                            @Html.EditorFor(model => model.Skype, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Enter Skype name" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Relationship name:</label>
+                            @Html.EditorFor(model => model.Relationship, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Enter Relationship name" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">About me:</label>
+                            @Html.EditorFor(model => model.AboutMe, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Enter About me" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Desire to meet:</label>
+                            @Html.EditorFor(model => model.DesireToMeet, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Enter Desire to meet" } })
+                        </div>
+                    </div>
+                    <div id="profession" class="tab-pane fade">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Organization name:</label>
+                            @Html.EditorFor(model => model.Organization, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Enter Organization name" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Organization location:</label>
+                            @Html.EditorFor(model => model.OrganizationLocation, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Enter Organization location" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Position in organization:</label>
+                            @Html.EditorFor(model => model.PositionInOrganization, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Enter Position in organization" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Organization joining date:</label>
+                            @Html.EditorFor(model => model.OrganizationJoinDate, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Enter organization join date" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Education name:</label>
+                            @Html.EditorFor(model => model.Education, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Enter education name" } })
+                        </div>
+                    </div>
+                    <div id="likes" class="tab-pane fade">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Interest name:</label>
+                            @Html.EditorFor(model => model.Interest, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Enter your interest" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Hobbies name:</label>
+                            @Html.EditorFor(model => model.Hobbies, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Enter your Hobbies" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">FavAnimals name:</label>
+                            @Html.EditorFor(model => model.FavAnimals, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Enter your favorite animals" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">FavBooks name:</label>
+                            @Html.EditorFor(model => model.FavBooks, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Enter your favorite books" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">FavMusics name:</label>
+                            @Html.EditorFor(model => model.FavMusics, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Enter your favorite musics" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">favArtist name:</label>
+                            @Html.EditorFor(model => model.favArtist, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Enter your favorite artist" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Smoker name:</label>
+                            @Html.EditorFor(model => model.Smoker, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Enter Smoker name" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Drinker:</label>
+                            @Html.EditorFor(model => model.Drinker, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Enter drinking name" } })
+                        </div>
+                    </div>
+                    <div id="personal" class="tab-pane fade">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Address:</label>
+                            @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Enter Address" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">City name:</label>
+                            @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Enter City name" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Country name:</label>
+                            @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Enter Country name" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Postal code:</label>
+                            @Html.EditorFor(model => model.PostalCode, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Enter Postal Code" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">TimeZone:</label>
+                            @Html.EditorFor(model => model.TimeZone, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Enter TimeZone name" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Privacy name:</label>
+                            @Html.EditorFor(model => model.Privacy, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Enter Privacy name" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Religion name:</label>
+                            @Html.EditorFor(model => model.Religion, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Enter Religion name" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Language('s) name:</label>
+                            @Html.EditorFor(model => model.Language, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Enter Language('s) name" } })
+                        </div>
+                    </div>
+                </div>
+
+                <label><a class="btn btn-default btn-sm" href="/">Cancel</a></label>
+                <button type="submit" class="btn btn-primary btn-sm " data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing">Save</button>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,21 @@
+﻿@using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "navbar-form navbar-right" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label>User Name</label><br />
+        <input type="text" class="form-control input-sm" name="UserName" id="UserName" placeholder="Enter User Name" data-val="true" data-val-required="The User name: field is required." /><br />
+        <div class="form-group">
+            <label for="RememberMe" class="faded-line">
+                <input data-val="true" data-val-required="The Remember me? field is required." id="RememberMe" name="RememberMe" type="checkbox" value="true">
+                <input name="RememberMe" type="hidden" value="false">
+                Keep me logged in?
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Password</label><br />
+        <input type="password" class="form-control input-sm" name="Password" id="Password" placeholder="Password" data-val="true" data-val-required="The Password field is required." /><br />
+        <label><a class="faded-line" href="/Account/ForgotPassword">Forgot your password?</a></label>
+    </div>
+    <button type="submit" class="btn btn-sm btn-primary">Log In</button>
+}

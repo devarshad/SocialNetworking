@@ -1,0 +1,9 @@
+﻿<div data-bind="with:koPost">
+    @Html.Partial("~/Views/Shared/Post/AddPost.cshtml")
+    @Html.Partial("~/Views/Shared/Post/PostWall.cshtml")
+</div>
+@section Post
+{
+    @Scripts.Render("~/bundles/post")
+    @Styles.Render("~/Content/post")
+}

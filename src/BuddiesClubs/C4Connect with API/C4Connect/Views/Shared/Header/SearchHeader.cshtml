@@ -1,0 +1,33 @@
+﻿<span class="notify-h">Search result...</span>
+<div data-bind="if:searchResult().length==0">
+    <a class="clearfix">
+        <span class="empty-notification">No match found...</span>
+    </a>
+</div>
+<div class="dropdown-menu-container" data-bind="foreach: searchResult,event: { scroll: scrolled(4,event)}">
+    <a class="msg-container clearfix display_box" data-bind="attr: { href: Url }">
+        <span class=" notification-thumb">
+            <img data-bind="attr: { src: Image }" width="50" height="50" alt="user-thumb">
+        </span>
+        <span class="notification-intro">
+            <span data-bind="text: Fullname"></span>
+            <span class="notify-info">
+                <span data-bind="text:Gender"></span>
+            </span>
+        </span>
+    </a>
+</div>
+<div class="dropdown-menu-container" data-bind="visible: pendingRequest">
+    <a class="msg-container clearfix">
+        <span class="notification-thumb">
+            <i class="fa fa-spinner" style="font-size:20px"></i>
+        </span>
+    </a>
+</div>
+
+<div data-bind="if:searchLast">
+    <p>No more records available</p>
+</div>
+<span class="PopUpfooter viewmore">
+    <a href="/Search">See All peoples</a>
+</span>

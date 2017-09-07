@@ -1,0 +1,86 @@
+﻿<div class="profile-detail partialView-container" data-bind="with:koLeftPage">
+    <div class="profile-pane">
+        <div class="profile-pane-header">
+            <p>
+                About Me...
+            </p>
+        </div>
+        <ul data-bind="foreach:about" class="list-unstyled">
+            <li data-bind="if:$root.koUser.ID()== $root.koPage.ID()">
+                <a data-bind="click:showAboutBox" href="#" class=" pull-right" title="Edit">
+                    <i class="fa fa-edit faded-text"></i>
+                </a>
+            </li>
+            <li>
+                Nick name : <span class="aboutData" data-bind="text:NickName"></span>
+            </li>
+            <li>
+                Gender : <span class="aboutData" data-bind="text:Gender"></span>
+            </li>
+            <li>
+                Age : <span class="aboutData" data-bind="text:Age"></span>
+            </li>
+            <li>
+                Religion : <span class="aboutData" data-bind="text:Religion"></span>
+            </li>
+            <li>
+                AboutMe : <span class="aboutData" data-bind="text:AboutMe"></span>
+            </li>
+            <li>
+                Rating : <span class="aboutData" data-bind="text:Rating"></span>
+            </li>
+            <li>
+                Contact : <span>
+                    Cell:<span class="aboutData" data-bind="text:PhoneNumber"></span>
+                    Skype:<span class="aboutData" data-bind="text:Skype"></span>
+                    Email:<span class="aboutData" data-bind="text:Email"></span>
+                </span>
+            </li>
+            <li>
+                Profession :
+                <span>
+                    Organization:<span class="aboutData" data-bind="text:Organization"></span>
+                    Position:<span class="aboutData" data-bind="text:PositionInOrganization"></span>
+                    Location:<span class="aboutData" data-bind="text:OrganizationLocation"></span>
+                    Joined on:<span class="aboutData" data-bind="text:OrganizationJoinDate"></span>
+                </span>
+            </li>
+            <li>
+                <span data-bind="visible:expanded">
+                    <ul class="list-unstyled collapsible">
+                        <li>
+                            Address :
+                            <ul class="list-unstyled">
+                                <li>
+                                    Locality:
+                                    <span class="aboutData" data-bind="text:Address"></span>
+                                </li>
+                                <li>
+                                    City:
+                                    <span class="aboutData" data-bind="text:City"></span>
+                                </li>
+                                <li>
+                                    Country:
+                                    <span class="aboutData" data-bind="text:Country"></span>
+                                </li>
+                                <li>
+                                    PostalCode:
+                                    <span class="aboutData" data-bind="text:PostalCode"></span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            Personal Information :
+                            <span>
+                                Relationship:<span class="aboutData" data-bind="text:Relationship"></span>
+                                Interest:<span class="aboutData" data-bind="text:Interest"></span>
+                                Hobbies:<span class="aboutData" data-bind="text:Hobbies"></span>
+                            </span>
+                        </li>
+                    </ul>
+                </span>
+                <a  class="collapsible" href="" data-bind="click: toggle, text:linkLabel"></a>
+            </li>
+        </ul>
+    </div>
+</div>

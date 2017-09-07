@@ -1,0 +1,9 @@
+﻿<div data-bind="with:koHeader" class="partialView-container">
+    <div class="input-group" style="padding:7px 0;">
+        <input type="text" class=" form-control input-sm" data-bind="value:searchText,valueUpdate: 'afterkeydown',event: { keypress: searchStart($element.value,event)}" placeholder="Friends, Places, values..." id="query" name="query" value="">
+        <div class="input-group-btn">
+            <button type="submit" class="btn btn-sm btn-primary search-Header"><span class="fa fa-search"></span></button>
+        </div>
+    </div>
+    @Html.Partial("~/Views/Shared/Header/SearchHeader.cshtml")
+</div>

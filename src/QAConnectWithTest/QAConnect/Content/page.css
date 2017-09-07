@@ -1,0 +1,193 @@
+﻿@media (min-width: 992px) {
+    .col-md-9 {
+        width: 68.46%;
+    }
+}
+
+.profile-detail {
+}
+
+#timelineNav ul li a {
+    font-weight: bold;
+    display: block;
+    line-height: 25px;
+    height: 25px;
+    text-decoration: none;
+}
+
+.truncate {
+    width: 168px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#container {
+    padding-right: 5px;
+    /*margin: 5px;*/
+}
+
+#timelineContainer {
+    width: 100%;
+    position: relative;
+}
+
+#timelineBackground {
+    max-height: 315px;
+    position: relative;
+    border-left: 1px solid #333333;
+    border-right: 1px solid #333333;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+#timelineProfilePic {
+    width: 140px;
+    height: 140px;
+    border: 1px solid #666666;
+    background-color: #ffffff;
+    margin-top: -115px;
+    margin-left: 20px;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+#timelineTitle {
+    color: #ffffff;
+    font-size: 16px;
+    margin-top: -35px;
+    position: absolute;
+    margin-left: 176px;
+    font-weight: bold;
+    text-rendering: optimizelegibility;
+    text-shadow: 0 0 3px rgba(0,0,0,.8);
+    z-index: 999;
+    text-transform: capitalize;
+}
+
+#timelineAction {
+    color: #ffffff;
+    font-size: 16px;
+    margin-top: -45px;
+    position: absolute;
+    right: 0;
+    font-weight: bold;
+    text-rendering: optimizelegibility;
+    text-shadow: 0 0 3px rgba(0,0,0,.8);
+    z-index: 999;
+    text-transform: capitalize;
+}
+
+#timelineShade {
+    min-height: 95px;
+    position: absolute;
+    margin-top: -95px;
+    width: 100%;
+    background: url(../Content/Images/timeline_shade.png);
+}
+
+.timelineUploadBG {
+    position: absolute;
+    margin-top: -220px;
+    height: 32px;
+    width: 32px;
+}
+
+.photoUploadBG {
+    position: absolute;
+    /* margin-top: 50px; */
+    /* margin-left: 90%; */
+    height: 32px;
+    width: 32px;
+}
+
+#timelineNav {
+    border: 1px solid #d6d7da;
+    background-color: #ffffff;
+    min-height: 43px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.uploadFile {
+    opacity: 0.5;
+    background: url('Images/whitecam.png') no-repeat;
+    height: 32px;
+    width: 32px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+    .uploadFile:hover {
+        opacity: 1;
+    }
+
+    .uploadFile input {
+        filter: alpha(opacity=0);
+        opacity: 0;
+        margin-left: -110px;
+    }
+
+.custom-file-input {
+    height: 25px;
+    cursor: pointer;
+}
+
+@media (max-width: 399px) {
+    #timelineProfilePic {
+        width: 90px !important;
+        height: 95px !important;
+        margin-top: -70px !important;
+        margin-left: 9px !important;
+    }
+
+    #timelineTitle {
+        font-size: 13px !important;
+        margin-left: 105px !important;
+    }
+
+    .truncate {
+        width: 141px;
+    }
+
+    #timelineAction {
+        margin-top: -21px !important;
+    }
+
+        #timelineAction ul {
+            margin-left: 0px !important;
+        }
+
+        #timelineAction li a.btn-sm {
+            padding: 0px 6px !important;
+        }
+}
+
+@media (min-width: 992px) {
+    .col-md-5 {
+        width: 39.666667%;
+    }
+}
+
+
+.mid-pane {
+    margin: 5px 1px 0px 15px;
+}
+
+@media (max-width: 767px) {
+    .left-pane {
+        display: none;
+        position: absolute;
+        z-index: 1005;
+        background-color: #eeeeee;
+    }
+
+    .mid-pane {
+        margin: 5px 1px 0px -4px;
+    }
+}

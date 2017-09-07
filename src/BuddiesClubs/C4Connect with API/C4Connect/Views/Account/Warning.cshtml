@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Log in";
+}
+<div class="col-md-6 border-box">
+    <div class="account-title">Warning</div>
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(false, "Please fix following error", new { @class = "text-danger" }, "strong")
+        if (String.IsNullOrEmpty(ViewBag.errorMessage))
+        {
+            <h4 class="text-danger">An error occurred while processing your request.</h4>
+        }
+        else
+        {
+            <h2 class="text-danger">@ViewBag.errorMessage</h2>
+            if (String.IsNullOrEmpty(ViewBag.Link))
+            {
+                <h4 class="text-danger">@ViewBag.errorMessage</h4>
+            }
+        }
+    }
+</div>

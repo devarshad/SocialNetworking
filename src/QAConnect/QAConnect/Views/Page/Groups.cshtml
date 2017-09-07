@@ -1,0 +1,21 @@
+﻿<div class="profile-detail partialView-container" data-bind="with:koLeftPage">
+    <div class="profile-pane">
+        <div class="profile-pane-header">
+            <p>
+                Groups...
+            </p>
+        </div>
+        <div data-bind="if:groups().length==0">
+            <a class="clearfix">
+                <span class="empty-notification">No groups available</span>
+            </a>
+        </div>
+
+        <ul data-bind="foreach:groups" class="list-inline">
+            <li>
+                <img class="Avtar" data-bind="attr: { src: Avtar}" />
+                <a class="Title truncate" data-bind="text:FullName,attr: { href: '/Group/'+Name}"></a>
+            </li>
+        </ul>
+    </div>
+</div>

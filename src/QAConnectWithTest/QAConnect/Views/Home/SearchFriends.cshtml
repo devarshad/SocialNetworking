@@ -1,0 +1,20 @@
+﻿<div class="profile-detail partialView-container" data-bind="with:koHeader">
+    <div class="profile-pane">
+        <div class="profile-pane-header">
+            <p>
+                Friends...
+            </p>
+        </div>
+        <div data-bind="if:newFriends().length==0">
+            <a class="clearfix">
+                <span class="empty-notification">No friends available</span>
+            </a>
+        </div>
+        <ul data-bind="foreach:newFriends" class="list-inline">
+            <li>
+                <img class="Avtar" data-bind="attr: { src: Avtar,'data-PageID':ID},tooltip:me" />
+                <a class="Title truncate" data-bind="text:FullName,attr: { href:  Name}"></a>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,181 @@
+﻿<style>
+    .Add_Feed_Icon {
+        position: relative;
+        min-height: 1.2em;
+    }
+
+        .Add_Feed_Icon:before {
+            font-family: FontAwesome;
+            position: absolute;
+            left: 0px;
+        }
+
+
+    .Status.Add_Feed_Icon:before {
+        content: "\f064";
+    }
+
+    .Photo.Add_Feed_Icon:before {
+        content: "\f030";
+    }
+
+
+    .Link.Add_Feed_Icon:before {
+        content: "\f0c1";
+    }
+
+    .Video.Add_Feed_Icon:before {
+        content: "\f03d";
+    }
+
+    .Audio.Add_Feed_Icon:before {
+        content: "\f001";
+    }
+</style>
+<div id="uploading"></div>
+<div class="publishContainer">
+    <div class="feed_form">
+        <ul class="list-inline" style="margin-left: 2px;margin-bottom: 10px;">
+            @*<li class="share">Share:</li>*@
+            <li>
+                <a data-bind="event: { click: function() { updateType(1,'updated a status') } }" href="#" class="Status Add_Feed_Icon active" rel="global_attachment_status">
+                    <div>
+                        Status
+                        <span class="activity_feed_extra_info">What's on your mind?</span>
+                    </div>
+                    <div class="drop"></div>
+                </a>
+            </li>
+
+            <li>
+                <a data-bind="event: { click: function() { updateType(2,'shared a photo') } }" href="#" class="Photo Add_Feed_Icon" rel="global_attachment_photo">
+                    <div>
+                        Photo
+                        <span class="activity_feed_extra_info">Say something about this photo...</span>
+                    </div>
+                    <div class="drop"></div>
+                </a>
+            </li>
+
+            <li>
+                <a data-bind="event: { click: function() { updateType(3,'shared a link') } }" href="#" class="Link Add_Feed_Icon" rel="global_attachment_link">
+                    <div>
+                        Link
+                        <span class="activity_feed_extra_info">Say something about this link...</span>
+                    </div>
+                    <div class="drop"></div>
+                </a>
+            </li>
+
+            @*<li>
+                    <a data-bind="event: { click: function() { updateType(4,'created a poll') } }" href="#" style="background-image:url('../../Images/Add_feed_Images/poll.png'); background-repeat:no-repeat; background-position:center left;" rel="global_attachment_poll" class="no_text_input">
+                        <div>
+                            Poll
+                            <span class="activity_feed_extra_info">Say something about this poll...</span>
+                        </div>
+                        <div class="drop"></div>
+                    </a>
+                </li>*@
+
+            <li>
+                <a data-bind="event: { click: function() { updateType(5,'shared a audio clip') } }" href="#" class="Audio Add_Feed_Icon" rel="global_attachment_music">
+                    <div>
+                        Music
+                        <span class="activity_feed_extra_info">Say something about this song.</span>
+                    </div>
+                    <div class="drop"></div>
+                </a>
+            </li>
+            <li>
+                <a data-bind="event: { click: function() { updateType(6,'shared a video clip') } }" href="#" class="Video Add_Feed_Icon" rel="global_attachment_video">
+                    <div>
+                        Video
+                        <span class="activity_feed_extra_info">Say something about this video.</span>
+                    </div>
+                    <div class="drop"></div>
+                </a>
+            </li>
+        </ul>
+        <div class="activity_feed_form_holder">
+            <div style="  border-bottom: 1px #DFDFDF solid;">
+                <div class="global_attachment_holder_section" id="global_attachment_photo" style="display: none;">
+                    <input id="photo_Attach" accept="image/*" data-bind="event: { change: function() { uploadFile($element.files[0]) } }" type="file" style="  width: auto;" class="form-control fileUpload input-sm">
+                    <div class="extra_info">
+                        Select a photo to attach.
+                    </div>
+                </div>
+                <div class="global_attachment_holder_section form-inline" id="global_attachment_link" style="display: none;">
+                    <input id="uploadLink" style="  width: 85%;" data-bind="event: { change: function() { uploadLink($element.value) } }" type="text" class="form-control input-sm" placeholder="http://" />
+                    @*<input type="button" value="Attach" class="btn btn-sm btn-primary" />*@
+                    <div class="extra_info">
+                        Paste a link you would like to attach and click outside to get details.
+                    </div>
+                </div>
+
+                @*<div class="global_attachment_holder_section" id="global_attachment_poll" style="display: none;">
+                        <div class="form-group">
+                            <label for="belowtext">Question:</label>
+                            <input style="  width: 85%;" type="text" class="form-control input-sm" placeholder="Your question..." />
+                        </div>
+                        <div class="form-group">
+                            <label for="belowtext">Answers:</label>
+                            <ol class="js_poll_feed_answer poll_feed_answer">
+                                <li>
+                                    <input style="  width: 85%;" type="text" class="form-control input-sm" />
+                                </li>
+                                <li>
+                                    <input style="  width: 85%;" type="text" class="form-control input-sm" />
+                                </li>
+                            </ol>
+                            <a href="#" onclick="return addNewPollOption();" class="poll_feed_answer_add">Add another answer</a>
+                        </div>
+                    </div>*@
+
+                <div class="global_attachment_holder_section" id="global_attachment_music" style="display: none;">
+                    <div class="form-group">
+                        <label for="belowtext">Title:</label>
+                        <input style="  width: 85%;" type="text" class="form-control input-sm" placeholder="Music title..." />
+                        <label for="belowtext">MP3:</label>
+                        <input type="file" style="  width: auto;" data-bind="event: { change: function() { uploadFile($element.files[0]) } }" class="form-control fileUpload input-sm">
+                        <div class="extra_info">
+                            Select a song to attach.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="global_attachment_holder_section" id="global_attachment_video" style="display: none;">
+                    <div class="form-group">
+                        <label for="belowtext">Title:</label>
+                        <input style="  width: 85%;" type="text" class="form-control input-sm" placeholder="Video title..." />
+                        <label for="belowtext">MP4:</label>
+                        <input type="file" style="  width: auto;" data-bind="event: { change: function() { uploadFile($element.files[0]) } }" class="form-control fileUpload input-sm">
+                        <div class="extra_info">
+                            Select a Video to attach.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="padding: 8px 5px 8px 5px;">
+                <div id="global_attachment_status">
+                    <textarea id="txtMessage" data-bind="value: newMessage" rows="3" placeholder="What's on your mind?"></textarea>
+                </div>
+            </div>
+            <div class="activity_feed_form_button">
+                <div class="activity_feed_form_button_position">
+                    <div class="activity_feed_form_button_position_button">
+                        <button type="submit" class="btn btn-primary btn-sm " data-bind="click: addPost" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing">Share</button>
+                    </div>
+                    <select class="privacy" style="float: right;">
+                        <option value="1">Everyone</option>
+                        <option value="2">Friends</option>
+                        <option value="3">Friends of Friends</option>
+                        <option value="4">Only Me</option>
+                    </select>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<p class="error" style="color:red" data-bind="text:error"></p>

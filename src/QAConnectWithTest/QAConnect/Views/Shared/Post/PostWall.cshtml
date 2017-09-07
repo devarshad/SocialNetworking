@@ -1,0 +1,145 @@
+﻿<style>
+    .postImage:hover {
+        cursor: pointer;
+    }
+
+        .postImage:hover .mejs-overlay-button {
+            background-position: 0 -100px;
+        }
+</style>
+
+<ul id="msgHolder" data-bind="foreach: posts">
+    <li class="postHolder" data-bind="visible:Active,attr: { id: 'post_' + PostId }">
+        <div class="dropdown  pull-right" data-bind="if:PostedBy==$root.koHeader.ID()">
+            <a href="#" class=" dropdown-toggle" data-toggle="dropdown" title="Everyone" aria-expanded="false">
+                <i class="fa fa-angle-down faded-text" style="font-size:20px"></i>
+            </a>
+            <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
+                @*<li><a data-bind="click:hidePost" href="#">Hide</a></li>*@
+                <li data-bind="if:PostedBy==$root.koHeader.ID()"><a data-bind="click:deletePost" href="#">Delete</a></li>
+                @*<li><a data-bind="click:reportPost" href="#">Report</a></li>*@
+            </ul>
+        </div>
+        <img class="Avtar" data-bind="attr: { src: PostedByAvatar ,'data-PageID':PostedBy},tooltip:me">
+        <p class="aboutPost">
+            <a class="AvtarName" data-bind="text: PostedByName,attr:{href:'/'+UserName,'data-PageID':PostedBy},tooltip:me"></a>
+            <span class="faded-text" data-bind="    html: PostDescription"></span>
+            <br />
+            <span class="timeago faded-text" data-bind="text: PostedDate"></span>&nbsp;.&nbsp;
+        </p>
+        <div class="postContent">
+            <div class="postDetail">
+                <p class="postMessage">
+                    <span data-bind="    html: Message"></span>
+                </p>
+                <div class="postImage" data-bind="if:PostType==2,event: { click: function() { loadSlide(Link,PostType,Message()) } }">
+                    <img class="data-holder" data-bind="attr: { src: Link}" alt="Image">
+                </div>
+                <div data-bind="if:PostType==3">
+                    <div data-bind="if:LinkIcon" class="activity_feed_content_image">
+                        <a style="float:left" data-bind="attr: { href: '/'+Link }" target="_blank">
+                            <img data-bind="attr: { src: LinkIcon }" alt="Image" style="max-width:120px; max-height:90px;">
+                        </a>
+                    </div>
+                    <div class=" activity_feed_content_float">
+                        <a data-bind="attr: { href: '/'+Link }" class="activity_feed_content_link_title" target="_blank">
+                            <span data-bind="if:LinkHeader">
+                                <span data-bind="text:LinkHeader"></span>
+                            </span>
+                            <span data-bind="ifnot:LinkHeader">
+                                <span data-bind="text:Link"></span>
+                            </span>
+                        </a>
+                    </div>
+                    <div data-bind="if:LinkDescription" class=" activity_feed_content_float">
+                        <p>
+                            <span data-bind="text:LinkDescription"></span>
+                        </p>
+                    </div>
+                </div>
+                @*<div class="postImage" data-bind="if:PostType==4">
+                        <a href="#">
+                            <img data-bind="attr: { src: Link , data: Link, type:  PostType}" alt="Image" height="121" width="328" class="photo_holder" defer="1">
+                        </a>
+                    </div>*@
+                <div class="postImage" data-bind="if:PostType==5,event: { click: function() { loadSlide(Link,PostType,Message(),LinkIcon)}}" style="position:relative">
+                    <img class="data-holder" data-bind="attr: { src: LinkIcon}" alt="Image">
+                    <div class="mejs-overlay-button">
+                    </div>
+                </div>
+                <div class="postImage" data-bind="if:PostType==6,event: { click: function() { loadSlide(Link,PostType,Message())}}" style="position:relative">
+                    <img class="data-holder" data-bind="attr: { src: LinkIcon}" alt="Image">
+                    <div class="mejs-overlay-button">
+                    </div>
+                </div>
+            </div>
+            <div class="postBottomActions">
+                @if (ViewBag.AnotherWall == null && ViewBag.UnAuthorizedWall == null)
+                {
+                    <span data-bind="if:Liked">
+                        <a class="linkUnlike" href="#" data-bind="    click: unlike">Unlike</a>&nbsp;.&nbsp;
+                    </span>
+                    <span data-bind="ifnot:Liked">
+                        <a class="linkLike" href="#" data-bind="    click: like">Like</a>&nbsp;.&nbsp;
+                    </span>
+                    <a class="linkComment" href="#" data-bind="    click: toggleComment">Comment</a>
+                }
+                else
+                {
+                    <span data-bind="if:Liked">
+                        <a class="linkUnlike" href="#" data-bind="    click: authorizeMe">Unlike</a>&nbsp;.&nbsp;
+                    </span>
+                    <span data-bind="ifnot:Liked">
+                        <a class="linkLike" href="#" data-bind="    click: authorizeMe">Like</a>&nbsp;.&nbsp;
+                    </span>
+                    <a class="linkComment" href="#" data-bind="    click: authorizeMe">Comment</a>
+                }
+            </div>
+            <div class="postFooter">
+                <div class="like_info" data-bind="visible:TotalLikes()>0">
+                    <span data-bind="if:Liked">
+                        <span data-bind="visible:TotalLikes() > 1,html:'you and ' + (TotalLikes() - 1) + ' more people like this.'">
+                        </span>
+                        <span data-bind="visible:TotalLikes() == 1,html:'you like this.'">
+                        </span>
+                    </span>
+                    <span data-bind="ifnot:Liked">
+                        <span data-bind="visible:TotalLikes() > 0,html:'' + (TotalLikes()) + ' people like this.'">
+                        </span>
+                    </span>
+                </div>
+                <div class="commentSection">
+                    <ul data-bind="foreach: PostComments">
+                        <li class="commentHolder" data-bind="attr: { id: 'comment_' + CommentId }">
+                            <img class="Avtar" data-bind="attr: { src: CommentedByAvatar ,'data-PageID':CommentedBy},tooltip:me">
+                            <div class="commentContent">
+                                <div><a data-bind="text: CommentedByName"></a>: <span data-bind="    html: Message"></span></div>
+                                <div class="commentFooter"> <span class="timeago" data-bind="text: CommentedDate"></span>&nbsp;</div>
+                            </div>
+                        </li>
+                    </ul>
+                    @if (ViewBag.AnotherWall == null && ViewBag.UnAuthorizedWall == null)
+                    {
+                        <ul>
+                            <li class="publishComment commentHolder">
+                                <span data-bind="with:$root.koHeader">
+                                    <img class="Avtar" data-bind="attr: { src: Picture}" />
+                                </span>
+                                @*<img class="Avtar" data-bind="attr: { src: PostedByAvatar }">*@
+                                <div style="display: block" class=" commentContent">
+                                    <input data-bind="value: newCommentMessage, valueUpdate: 'input', executeOnEnter: addComment" type="text" class="form-control input-sm" placeholder="write a comment..." />
+                                </div>
+                            </li>
+                        </ul>
+                    }
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+
+<div data-bind="if:last">
+    <p>No more post available</p>
+</div>
+
+<p class="error" style="color:red" data-bind="text:error"></p>

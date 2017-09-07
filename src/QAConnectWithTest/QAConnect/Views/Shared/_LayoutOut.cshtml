@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="wrap">
+    <div class="account-top-menu">
+        <div class="container">
+            <div class="navbar-header col-md-6">
+                @Html.ActionLink("QA Connect", "Index", "Account", new { }, new { @class = "navbar-brand" })
+            </div>
+            <div class="col-md-6 sign-in-header">
+                @Html.Partial("~/Views/Account/SignInHeader.cshtml")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content account-body-menu">
+        @RenderBody()
+    </div>
+</div>
+
+@section Account
+{
+    @Styles.Render("~/Content/cAccount")
+    @Scripts.Render("~/bundles/jAccount")
+    @RenderSection("scriptAccountLogin", required: false)
+}

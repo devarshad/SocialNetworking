@@ -1,0 +1,123 @@
+﻿@{
+    Layout = null;
+}
+<div id="tooltipHolder" style="display:none">
+    <div id="containerToolTip" data-bind="with:$root.koTooltip">
+        <!-- timeline background -->
+        <div id="timelineBackgroundToolTip">
+            <img data-bind="attr: { src: Wallpaper}" class=" bgimage" style="margin-top: 0px">
+        </div>
+
+        <!-- timeline background shade-->
+        <div id="timelineShade">
+        </div>
+
+        <!-- timeline profile picture -->
+        <div id="timelineProfilePicToolTip">
+            <div style="padding:5px;  height: 100%;">
+                <img data-bind="attr: { src: Picture}" style="width:100%">
+            </div>
+        </div>
+
+        <!-- timeline title -->
+        <div class="truncate" id="timelineTitleToolTip">
+            <span data-bind="text:FullName"></span>
+        </div>
+
+        <!-- timeline Action -->
+        <div id="timelineAction" data-bind="visible:vmHeader.ID()!= ID()">
+            <ul class=" list-inline" style="margin-left: 165px;">
+                <li>
+                    <a style="cursor:pointer" data-bind="visible:PageRelationStatus()==2,    click: removeFriend" class="btn btn-primary btn-sm"><span class="fa fa-check"></span><span class="ActionName">  Friend</span></a>
+                    <a style="cursor:pointer" data-bind="visible:PageRelationStatus()==1&& Requester()== $root.vmHeader.ID(),    click: cancelFriendRequest" class="btn btn-primary btn-sm"><span class="fa fa-check"></span><span class="ActionName"> FriendRequest Sent</span></a>
+                    <a style="cursor:pointer" data-bind="visible:PageRelationStatus()==1&& Reciever()== $root.vmHeader.ID(),    click: acceptFriendRequest" class="btn btn-primary btn-sm"><span class="fa fa-user-plus"></span><span class="ActionName"> Recieve FriendRequest</span></a>
+                    <a style="cursor:pointer" data-bind="visible:PageRelationStatus()==3||PageRelationStatus()==0,    click: addFriendRequest" class="btn btn-primary btn-sm"><span class="fa fa-user-plus"></span><span class="ActionName"> Add Friend</span></a>
+                </li>
+                <li>
+                    <a style="cursor:pointer" class="btn btn-primary btn-sm showModal" data-bind="    click: showMessageBox"><span class="fa fa-comment"></span><span class="ActionName"> Message</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<style>
+    #timelineNav ul li a {
+        font-weight: bold;
+        display: block;
+        line-height: 25px;
+        height: 25px;
+        text-decoration: none;
+    }
+
+    .truncate {
+        width: 168px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    #containerToolTip {
+        padding: 2px;
+        width: 370px;
+        margin: 0;
+    }
+
+    #timelineContainer {
+        /*width: 100%;
+        position: relative;*/
+    }
+
+    #timelineBackgroundToolTip {
+        border-left: 1px solid #333333;
+        border-right: 1px solid #333333;
+        height: 205px;
+        /*position: relative;
+        margin-top: 5px;
+        overflow: hidden;
+        background-color: #ffffff;*/
+    }
+
+    #timelineProfilePicToolTip {
+        width: 100px;
+        height: 100px;
+        border: 1px solid #666666;
+        background-color: #ffffff;
+        position: absolute;
+        margin-top: -105px;
+        margin-left: 5px;
+        z-index: 1000;
+        overflow: hidden;
+    }
+
+    #timelineTitleToolTip {
+        color: #ffffff;
+        font-size: 16px;
+        margin-top: -86px;
+        position: absolute;
+        margin-left: 115px;
+        font-weight: bold;
+        text-rendering: optimizelegibility;
+        text-shadow: 0 0 3px rgba(0,0,0,.8);
+        z-index: 999;
+        text-transform: capitalize;
+    }
+
+    #timelineAction {
+        color: #ffffff;
+        font-size: 16px;
+        margin-top: -45px;
+        position: absolute;
+        right: 0;
+        font-weight: bold;
+        text-rendering: optimizelegibility;
+        text-shadow: 0 0 3px rgba(0,0,0,.8);
+        z-index: 999;
+        text-transform: capitalize;
+    }
+
+    .tooltipEmpty {
+        width: 370px;
+        height: 126px;
+        padding-top: 30px;
+    }
+</style>

@@ -1,0 +1,13 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Unauthorize access";
+    if (!Request.IsAuthenticated)
+    {
+        Layout = "~/Views/Shared/_LayoutError.cshtml";
+    }
+}
+
+<h1 class="text-danger">Unauthorize access.</h1>
+<h2 class="text-danger">The access to the requested page is not authrorized.</h2>
+

@@ -1,0 +1,13 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Forbidden";
+    if (!Request.IsAuthenticated)
+    {
+        Layout = "~/Views/Shared/_LayoutError.cshtml";
+    }
+}
+
+<h1 class="text-danger">Forbidden.</h1>
+<h2 class="text-danger">Access the requested page is forbidden.</h2>
+

@@ -1,0 +1,179 @@
+﻿@{
+    Layout = null;
+}
+
+<div id="containerToolTip" data-bind="foreach:tooltip">
+
+    <div id="timelineContainer">
+
+        <!-- timeline background -->
+        <div id="timelineBackgroundToolTip">
+
+            <img data-bind="attr: { src: Wallpaper}" class=" bgimage" style="margin-top: 0px">
+        </div>
+
+        <!-- timeline background sahde-->
+        <div style="background:url(http://demos.9lessons.info/ajaximageupload/images_bg/timeline_shade.png);" id="timelineShade">
+
+        </div>
+
+        <!-- timeline profile picture -->
+        <div id="timelineProfilePicToolTip">
+            <div style="padding:5px;  height: 100%;">
+
+                <img data-bind="attr: { src: Image}" style="width:100%">
+            </div>
+
+        </div>
+
+        <!-- timeline title -->
+        <div class="truncate" id="timelineTitleToolTip">@UserViewed.FullName</div>
+        @*@if (ViewBag.MyWall != null)
+            {
+                <div class="truncate" id="timelineTitle">@CurrentUser.FullName</div>
+            }
+            else
+            {
+                <div class="truncate" id="timelineTitle">@UserViewed.FullName</div>
+            }*@
+
+        <!-- timeline Action -->
+        <div id="timelineAction">
+            <ul class="list-inline" style="
+    margin-left: 165px;
+">
+                @if (ViewBag.MyWall != null) { }
+                else if (ViewBag.FriendWallToolTip != null)
+                {
+                    <li>
+                        <a style="cursor:pointer" data-bind="    click: friendReject" class="btn btn-primary btn-sm"><span class="fa fa-check"></span>  Friend</a>
+                    </li>
+                    <li>
+                        <a style="cursor:pointer" class="btn btn-default btn-sm showModal"><span class="fa fa-comment"></span> Message</a>
+                    </li>
+                }
+                else if (ViewBag.UnAuthorizedWallToolTip != null)
+                {
+                    <li>
+                        <a style="cursor:pointer" data-bind="    click: authorizeMe" class="btn btn-primary btn-sm"><span class="fa fa-user-plus"></span> Add Friend</a>
+                    </li>
+                    <li>
+                        <a style="cursor:pointer" data-bind="    click: authorizeMe" class="btn btn-default btn-sm"><span class="fa fa-comment"></span> Message</a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        @if (ViewBag.FriendRequestSentToolTip != null)
+                        {
+                            <a style="cursor:pointer" data-bind="    click: friendRequestCancel" class="btn btn-primary btn-sm"><span class="fa fa-check"></span> FriendRequest Sent</a>
+                        }
+                        else if (ViewBag.FriendRequestRecivedToolTip != null)
+                        {
+                            <a style="cursor:pointer" data-bind="    click: addFriend" class="btn btn-primary btn-sm"><span class="fa fa-user-plus"></span> Recieve FriendRequest</a>
+                        }
+                        else if (ViewBag.AnotherWallToolTip != null || ViewBag.RejectedWallToolTip != null)
+                        {
+                            <a style="cursor:pointer" data-bind="    click: addFriendRequest" class="btn btn-primary btn-sm"><span class="fa fa-user-plus"></span> Add Friend</a>
+                        }
+                    </li>
+                    <li>
+                        <a style="cursor:pointer" class="btn btn-default btn-sm showModal"><span class="fa fa-comment"></span> Message</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+@*<style>
+        #timelineNav ul li a {
+            font-weight: bold;
+            display: block;
+            line-height: 25px;
+            height: 25px;
+            text-decoration: none;
+        }
+
+        .truncate {
+            width: 168px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #e9eaed;
+            color: #333333;
+        }
+
+        #containerToolTip {
+            padding-right: 5px;
+            width: 370px;
+            /*margin: 5px;*/
+        }
+
+        #timelineContainer {
+            width: 100%;
+            position: relative;
+        }
+
+        #timelineBackgroundToolTip {
+            height: 205px;
+            position: relative;
+            border-left: 1px solid #333333;
+            border-right: 1px solid #333333;
+            margin-top: 5px;
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+
+        #timelineProfilePicToolTip {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #666666;
+            background-color: #ffffff;
+            position: absolute;
+            margin-top: -105px;
+            margin-left: 5px;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        #timelineTitleToolTip {
+            color: #ffffff;
+            font-size: 16px;
+            margin-top: -86px;
+            position: absolute;
+            margin-left: 115px;
+            font-weight: bold;
+            text-rendering: optimizelegibility;
+            text-shadow: 0 0 3px rgba(0,0,0,.8);
+            z-index: 999;
+            text-transform: capitalize;
+        }
+
+        #timelineAction {
+            color: #ffffff;
+            font-size: 16px;
+            margin-top: -45px;
+            position: absolute;
+            right: 0;
+            font-weight: bold;
+            text-rendering: optimizelegibility;
+            text-shadow: 0 0 3px rgba(0,0,0,.8);
+            z-index: 999;
+            text-transform: capitalize;
+        }
+    </style>*@
+
+@*<script>
+        vmPost.tooltip.splice(0, 0, new Tooltip(@Html.Raw(@Newtonsoft.Json.JsonConvert.SerializeObject(Model)), vmPost.hub));
+    </script>*@
+

@@ -1,0 +1,162 @@
+﻿@{
+    Layout = null;
+}
+<style>
+    .tab-content {
+        border: 1px solid #ddd;
+        border-top: none;
+        padding: 10px;
+    }
+</style>
+
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Update Profile</h4>
+    </div>
+    <div class="modal-body">
+        @using (Html.BeginForm("SaveAbout", "Page", FormMethod.Post, new { role = "form", @class = "SaveProfileDetail" }))
+        {
+            @Html.AntiForgeryToken()
+            @*@Html.ValidationSummary(false, "Please fix following error", new { @class = "text-danger" }, "strong")*@
+
+            <div class="form-horizsontal">
+                @*  @Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active"><a data-toggle="tab" href="#basic">Basic</a></li>
+                    <li><a data-toggle="tab" href="#profession">Profession</a></li>
+                    <li><a data-toggle="tab" href="#likes">Likes</a></li>
+                    <li><a data-toggle="tab" href="#personal">Personal</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="basic" class="tab-pane fade in active">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Nick name:</label>
+                            <input type="text" data-bind="value: NickName" class="form-control input-sm" placeholder="Enter Nick name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Phone number:</label>
+                            <input type="text" data-bind="value: PhoneNumber" class="form-control input-sm" placeholder="Enter Phone number" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Skype name:</label>
+                            <input type="text" data-bind="value: Skype" class="form-control input-sm" placeholder="Enter Skype name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Relationship name:</label>
+                            <input type="text" data-bind="value: Relationship" class="form-control input-sm" placeholder="Enter Relationship name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">About me:</label>
+                            <input type="text" data-bind="value: AboutMe" class="form-control input-sm" placeholder="Enter About me" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Relationship name:</label>
+                            <input type="text" data-bind="value: Relationship" class="form-control input-sm" placeholder="Enter Relationship name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Desire to meet:</label>
+                            <input type="text" data-bind="value: Relationship" class="form-control input-sm" placeholder="Enter Desire to meet" />
+                        </div>
+                    </div>
+                    <div id="profession" class="tab-pane fade">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Organization name:</label>
+                            <input type="text" data-bind="value: Organization" class="form-control input-sm" placeholder="Enter Organization name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Organization location:</label>
+                            <input type="text" data-bind="value: OrganizationLocation" class="form-control input-sm" placeholder="Enter Organization location" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Position in organization:</label>
+                            <input type="text" data-bind="value: PositionInOrganization" class="form-control input-sm" placeholder="Position in organization" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Organization joining date:</label>
+                            <input type="text" data-bind="value: OrganizationJoinDate" class="form-control input-sm" placeholder="Organization joining date" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Education name:</label>
+                            <input type="text" data-bind="value: Education" class="form-control input-sm" placeholder="Enter Education name" />
+                        </div>
+                    </div>
+                    <div id="likes" class="tab-pane fade">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Interest name:</label>
+                            <input type="text" data-bind="value: Interest" class="form-control input-sm" placeholder="Enter Interest name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Hobbies name:</label>
+                            <input type="text" data-bind="value: Hobbies" class="form-control input-sm" placeholder="Enter Hobbies name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">FavAnimals name:</label>
+                            <input type="text" data-bind="value: FavAnimals" class="form-control input-sm" placeholder="Enter FavAnimals name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">FavBooks name:</label>
+                            <input type="text" data-bind="value: FavBooks" class="form-control input-sm" placeholder="Enter FavBooks name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">FavMusics name:</label>
+                            <input type="text" data-bind="value: FavMusics" class="form-control input-sm" placeholder="Enter FavMusics name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">favArtist name:</label>
+                            <input type="text" data-bind="value: favArtist" class="form-control input-sm" placeholder="Enter favArtist name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Smoker name:</label>
+                            <input type="text" data-bind="value: Smoker" class="form-control input-sm" placeholder="Enter Smoker name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Drinker name:</label>
+                            <input type="text" data-bind="value: Drinker" class="form-control input-sm" placeholder="Enter Drinker name" />
+                        </div>
+                    </div>
+                    <div id="personal" class="tab-pane fade">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Address:</label>
+                            <input type="text" data-bind="value: Address" class="form-control input-sm" placeholder="Enter Address" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">City name:</label>
+                            <input type="text" data-bind="value: City" class="form-control input-sm" placeholder="Enter City name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Country name:</label>
+                            <input type="text" data-bind="value: Country" class="form-control input-sm" placeholder="Enter Country name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Postal code:</label>
+                            <input type="text" data-bind="value: PostalCode" class="form-control input-sm" placeholder="Enter Postal code" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">TimeZone:</label>
+                            <input type="text" data-bind="value: TimeZone" class="form-control input-sm" placeholder="Enter TimeZone" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Privacy name:</label>
+                            <input type="text" data-bind="value: Privacy" class="form-control input-sm" placeholder="Enter Privacy name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Religion name:</label>
+                            <input type="text" data-bind="value: Religion" class="form-control input-sm" placeholder="Enter Religion name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Language('s) name:</label>
+                            <input type="text" data-bind="value: Language" class="form-control input-sm" placeholder="Enter Language('s) name" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary btn-sm" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing" data-bind="    click: saveAbout">Save</button>
+        @*<input type="submit" value="Create" class="btn btn-default" />*@
+    </div>
+</div>

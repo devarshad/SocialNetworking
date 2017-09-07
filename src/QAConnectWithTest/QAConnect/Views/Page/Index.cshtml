@@ -1,0 +1,9 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+@Html.Partial("~/Views/Shared/Post/index.cshtml")
+@section Post
+{
+    @Scripts.Render("~/bundles/post")
+    @Styles.Render("~/Content/post")
+}

@@ -1,0 +1,178 @@
+﻿<div id="container">
+
+    <div id="timelineContainer">
+
+        <!-- timeline background -->
+        <div id="timelineBackground">
+            <img data-bind="attr: { src:Wallpaper}" class="bgImage" style="margin-top: 0px">
+        </div>
+
+        <!-- timeline background -->
+        <div id="timelineShade">
+            <form id="bgimageform" method="post" enctype="multipart/form-data" action="image_upload_ajax_bg.php" data-bind="visible:$root.koUser.ID()== ID()">
+                <div class="uploadFile timelineUploadBG">
+                    <input type="file" name="photoimg" data-bind="event: { change: function() { uploadWallpaper($element.files[0]) } }" id="bgphotoimg" class=" custom-file-input" original-title="Change Cover Picture">
+                </div>
+            </form>
+        </div>
+
+        <!-- timeline title -->
+        <div class="truncate" id="timelineTitle">
+            <span data-bind="text:FullName"></span>
+        </div>
+
+        <!-- timeline Action -->
+        <div id="timelineAction" data-bind="visible:$root.koUser.ID()!= ID()">
+            <ul class=" list-inline" style="margin-left: 165px;">
+                <li>
+                    <a style="cursor:pointer" data-bind="visible:PageRelationStatus()==2,    click: removeFriend" class="btn btn-primary btn-sm"><span class="fa fa-check"></span><span class="ActionName">  Friend</span></a>
+                    <a style="cursor:pointer" data-bind="visible:PageRelationStatus()==1&& Requester()== $root.koUser.ID(),    click: cancelFriendRequest" class="btn btn-primary btn-sm"><span class="fa fa-check"></span><span class="ActionName"> FriendRequest Sent</span></a>
+                    <a style="cursor:pointer" data-bind="visible:PageRelationStatus()==1&& Reciever()== $root.koUser.ID(),    click: acceptFriendRequest" class="btn btn-primary btn-sm"><span class="fa fa-user-plus"></span><span class="ActionName"> Recieve FriendRequest</span></a>
+                    <a style="cursor:pointer" data-bind="visible:PageRelationStatus()==3||PageRelationStatus()==0,    click: addFriendRequest" class="btn btn-primary btn-sm"><span class="fa fa-user-plus"></span><span class="ActionName"> Add Friend</span></a>
+                </li>
+                <li>
+                    <a style="cursor:pointer" class="btn btn-primary btn-sm showModal" data-bind="    click: showMessageBox"><span class="fa fa-comment"></span><span class="ActionName"> Message</span></a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- timeline nav -->
+        <div id="timelineNav">
+            <ul class="list-inline" style="
+    margin-top: 5px;
+">
+                <li>
+                    <!-- timeline profile picture -->
+                    <div id="timelineProfilePic">
+                        <div style="padding:5px;  height: 100%;">
+                            <img data-bind="attr: { src: Picture}" style="width:100%">
+                        </div>
+                        <div style="margin-top:-30px;  margin-left: 5px;" data-bind="visible:$root.koUser.ID()== ID()">
+                            <div class="uploadFile photoUploadBG">
+                                <input type="file" name="photoimg" id="bgphotoimg" data-bind="event: { change: function() { uploadPicture($element.files[0]) } }" class=" custom-file-input" original-title="Change Cover Picture">
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+                <li>
+                    <a data-bind="attr: { href: '/'+$root.koPage.Name()}">Timeline</a>
+                </li>
+                <li>
+                    <a data-bind="attr:{href:'/About/'+$root.koPage.ID()+'/'+$root.koPage.PageType()}">About</a>
+                </li>
+                <li>
+                    <a data-bind="attr:{href:'/Friends/'+$root.koPage.ID()+'/'+$root.koPage.PageType()}">Friends</a>
+                </li>
+                <li>
+                    <a data-bind="attr:{href:'/Photos/'+$root.koPage.ID()+'/'+$root.koPage.PageType()}">Photos</a>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <a href="#" class=" dropdown-toggle" data-toggle="dropdown" title="Everyone" aria-expanded="false">
+                            More <i class="fa fa-angle-down faded-text" style="font-size:20px"></i>
+                        </a>
+                        <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
+                            <li>
+                                <a href="/Groups">Groups</a>
+                            </li>
+                            <li>
+                                <a href="/Events">Events</a>
+                            </li>
+                            <li>
+                                <a data-bind="attr:{href:'/Audios/'+$root.koPage.ID()+'/'+$root.koPage.PageType()}">Music</a>
+                            </li>
+                            <li>
+                                <a data-bind="attr:{href:'/Videos/'+$root.koPage.ID()+'/'+$root.koPage.PageType()}">Video</a>
+                            </li>
+                        </ul>
+                    </div>
+                    @*<a>More</a>
+                    <ul>
+                        <li>
+                            <a href="/Groups">Groups</a>
+                        </li>
+                        <li>
+                            <a href="/Events">Events</a>
+                        </li>
+                        <li>
+                            <a data-bind="attr:{href:'/Audios/'+$root.koPage.ID()+'/'+$root.koPage.PageType()}">Music</a>
+                        </li>
+                    </ul>*@
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+
+@*<script src="~/Scripts/jquery-ui-1.11.4.min.js"></script>
+    <script src="http://demos.9lessons.info/ajaximageupload/js_bg/jquery.wallform.js"></script>*@
+@*<script>
+        $(document).ready(function()
+        {
+
+            /* Uploading Profile BackGround Image */
+            $('body').on('change','#bgphotoimg', function()
+            {
+                $("#bgimageform").ajaxForm({target: '#timelineBackground',
+                    success:function(){
+                        $("#timelineShade").hide();
+                        $("#bgimageform").hide();
+                    }).submit();
+            });
+
+            /* Banner position drag */
+            $("body").on('mouseover','.headerimage',function()
+            {
+                var y1 = $('#timelineBackground').height();
+                var y2 =  $('.headerimage').height();
+                $(this).draggable({
+                    scroll: false,
+                    axis: "y",
+                    drag: function(event, ui) {
+                        if(ui.position.top >= 0)
+                        {
+                            ui.position.top = 0;
+                        }
+                        else if(ui.position.top <= y1 - y2)
+                        {
+                            ui.position.top = y1 - y2;
+                        }
+                    },
+                    stop: function(event, ui)
+                    {
+                    }
+                });
+            });
+
+            /* Bannert Position Save*/
+            $("body").on('click','.bgSave',function ()
+            {
+                var p = $("#timelineBGload").attr("style");
+                var Y =p.split("top:");
+                var Z=Y[1].split(";");
+                var dataString ='position='+Z[0];
+                $.ajax({
+                    type: "POST",
+                    url: "image_saveBG_ajax.php",
+                    data: dataString,
+                    cache: false,
+                    success: function(html)
+                    {
+                        if(html)
+                        {
+                            $(".bgImage").fadeOut('slow');
+                            $(".bgSave").fadeOut('slow');
+                            $("#timelineShade").fadeIn("slow");
+                            $("#timelineBGload").removeClass("headerimage").css({'margin-top':html});
+                            return false;
+                        }
+                    }
+                });
+                return false;
+            });
+
+        });
+    </script>*@

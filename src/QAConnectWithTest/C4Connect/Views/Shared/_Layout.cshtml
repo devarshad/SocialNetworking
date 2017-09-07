@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/bundles/font-awesome")
+    @Styles.Render("~/bundles/Content/css")
+    @section baseScriptBundle {
+        @Scripts.Render("~/bundles/base/js")
+    }
+</head>
+<body>
+    @RenderBody()
+    @*@section mainScriptBundle {
+            @Scripts.Render("~/bundles/main/js")
+            @Scripts.Render("~/bundles/chat/js")
+        }*@
+    @*@Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/common")
+        @RenderSection("scripts", required: false)*@
+</body>
+</html>

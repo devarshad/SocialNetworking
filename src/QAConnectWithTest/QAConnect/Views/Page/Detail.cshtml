@@ -1,0 +1,183 @@
+﻿<div class="profile-pane">
+    <div class="profile-pane-header">
+        <p>
+            About Me...
+        </p>
+    </div>
+    <ul data-bind="foreach:about" class="list-unstyled">
+        <li data-bind="if:$root.koHeader.ID()== $root.koPage.ID()">
+            <a data-bind="click:showAboutBox" href="#" class=" pull-right" title="Edit">
+                <i class="fa fa-edit faded-text"></i>
+            </a>
+        </li>
+        <li>
+            Nick name : <span class="aboutData" data-bind="text:NickName"></span>
+        </li>
+        <li>
+            Gender : <span class="aboutData" data-bind="text:Gender"></span>
+        </li>
+        <li>
+            Age : <span class="aboutData" data-bind="text:Age"></span>
+        </li>
+        <li>
+            Religion : <span class="aboutData" data-bind="text:Religion"></span>
+        </li>
+        <li>
+            AboutMe : <span class="aboutData" data-bind="text:AboutMe"></span>
+        </li>
+        <li>
+            Rating : <span class="aboutData" data-bind="text:Rating"></span>
+        </li>
+        <li>
+            Contact : <span>
+                Cell:<span class="aboutData" data-bind="text:PhoneNumber"></span>
+                Skype:<span class="aboutData" data-bind="text:Skype"></span>
+                Email:<span class="aboutData" data-bind="text:Email"></span>
+            </span>
+        </li>
+        <li>
+            Profession :
+            <span>
+                Organization:<span class="aboutData" data-bind="text:Organization"></span>
+                Position:<span class="aboutData" data-bind="text:PositionInOrganization"></span>
+                Location:<span class="aboutData" data-bind="text:OrganizationLocation"></span>
+                Joined on:<span class="aboutData" data-bind="text:OrganizationJoinDate"></span>
+            </span>
+        </li>
+        <li>
+            <span data-bind="visible:expanded">
+                <ul class="list-unstyled collapsible">
+                    <li>
+                        Address :
+                        <ul class="list-unstyled">
+                            <li>
+                                Locality:
+                                <span class="aboutData" data-bind="text:Address"></span>
+                            </li>
+                            <li>
+                                City:
+                                <span class="aboutData" data-bind="text:City"></span>
+                            </li>
+                            <li>
+                                Country:
+                                <span class="aboutData" data-bind="text:Country"></span>
+                            </li>
+                            <li>
+                                PostalCode:
+                                <span class="aboutData" data-bind="text:PostalCode"></span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Personal Information :
+                        <span>
+                            Relationship:<span class="aboutData" data-bind="text:Relationship"></span>
+                            Interest:<span class="aboutData" data-bind="text:Interest"></span>
+                            Hobbies:<span class="aboutData" data-bind="text:Hobbies"></span>
+                        </span>
+                    </li>
+                </ul>
+            </span>
+            <a href="" data-bind="click: toggle, text:linkLabel"></a>
+        </li>
+    </ul>
+</div>
+<div class="profile-pane" data-bind="visible:friends().length>0">
+    <div class="profile-pane-header">
+        <p>
+            Friends...
+        </p>
+    </div>
+    <ul data-bind="foreach:friends" class="list-inline">
+        <li>
+            <img class="Avtar" data-bind="attr: { src: Avtar}" />
+            <a class="Title truncate" data-bind="text:FullName,attr: { href: '/'+Name}"></a>
+        </li>
+    </ul>
+    <p><a class="btn btn-sm btn-primary" data-bind="attr:{href:'/Friends/'+$root.koPage.ID()+'/'+$root.koPage.PageType()}">more »</a></p>
+</div>
+
+<div class="profile-pane" data-bind="visible:groups().length>0">
+    <div class="profile-pane-header">
+        <p>
+            Groups...
+        </p>
+    </div>
+    <ul data-bind="foreach:groups" class="list-inline">
+        <li>
+            <img class="Avtar" data-bind="attr: { src: Avtar}" />
+            <a class="Title truncate" data-bind="text:FullName,attr: { href: 'Group/'+Name}"></a>
+        </li>
+    </ul>
+    <p><a class="btn btn-sm btn-primary" href="/Groups">more »</a></p>
+</div>
+
+<div class="profile-pane" data-bind="visible:events().length>0">
+    <div class="profile-pane-header">
+        <p>
+            Events...
+        </p>
+    </div>
+    <ul data-bind="foreach:events" class="list-inline">
+        <li>
+            <img class="Avtar" data-bind="attr: { src: Avtar}" />
+            <a class="Title truncate" data-bind="text:FullName,attr: { href: 'Event/'+Name}"></a>
+        </li>
+    </ul>
+    <p><a class="btn btn-sm btn-primary" href="/Events">more »</a></p>
+</div>
+
+
+<div class="profile-pane" data-bind="visible:photos().length>0">
+    <div class="profile-pane-header">
+        <p>
+            Photos...
+        </p>
+    </div>
+    <ul data-bind="foreach:photos" class="list-inline">
+        <li data-bind="event: { click: function() { loadSlide(Avtar,2,Detail) } }">
+            <img class="Avtar" data-bind="attr: { src: Avtar}" alt="Image">
+            <a class="Title truncate" data-bind="text:Detail,attr: { href: Name}"></a>
+        </li>
+    </ul>
+    <p><a class="btn btn-sm btn-primary" data-bind="attr:{href:'/Photos/'+$root.koPage.ID()+'/'+$root.koPage.PageType()}">more »</a></p>
+</div>
+
+
+<div class="profile-pane" data-bind="visible:musics().length>0">
+    <div class="profile-pane-header">
+        <p>
+            Music...
+        </p>
+    </div>
+    <ul data-bind="foreach:musics" class="list-inline">
+        <li>
+            <div class="postImage" data-bind="event: { click: function() { loadSlide(Avtar,5,Detail,AvtarIcon)}}" style="position:relative">
+                <img class="Avtar" data-bind="attr: { src: AvtarIcon}" alt="Image">
+                <div class="mejs-overlay-button">
+                </div>
+                <a class="Title truncate" data-bind="text:Detail"></a>
+            </div>
+        </li>
+    </ul>
+    <p><a class="btn btn-sm btn-primary" data-bind="attr:{href:'/Audios/'+$root.koPage.ID()+'/'+$root.koPage.PageType()}">more »</a></p>
+</div>
+
+<div class="profile-pane" data-bind="visible:videos().length>0">
+    <div class="profile-pane-header">
+        <p>
+            Video...
+        </p>
+    </div>
+    <ul data-bind="foreach:videos" class="list-inline">
+        <li>
+            <div class="postImage" data-bind="event: { click: function() { loadSlide(Avtar,6,Detail,AvtarIcon)}}" style="position:relative">
+                <img class="Avtar" data-bind="attr: { src: AvtarIcon}" alt="Image">
+                <div class="mejs-overlay-button">
+                </div>
+                <a class="Title truncate" data-bind="text:Detail"></a>
+            </div>
+        </li>
+    </ul>
+    <p><a class="btn btn-sm btn-primary" data-bind="attr:{href:'/Videos/'+$root.koPage.ID()+'/'+$root.koPage.PageType()}">more »</a></p>
+</div>

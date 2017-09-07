@@ -1,0 +1,20 @@
+﻿<div class="profile-detail partialView-container" data-bind="with:koLeftPage">
+    <div class="profile-pane">
+        <div class="profile-pane-header">
+            <p>
+                Events...
+            </p>
+        </div>
+        <div data-bind="if:events().length==0">
+            <a class="clearfix">
+                <span class="empty-notification">No events available</span>
+            </a>
+        </div>
+        <ul data-bind="foreach:events" class="list-inline">
+            <li>
+                <img class="Avtar" data-bind="attr: { src: Avtar}" />
+                <a class="Title truncate" data-bind="text:FullName,attr: { href: '/Event/'+Name}"></a>
+            </li>
+        </ul>
+    </div>
+</div>

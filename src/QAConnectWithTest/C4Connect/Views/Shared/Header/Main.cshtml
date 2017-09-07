@@ -1,0 +1,107 @@
+﻿<div class="row wallheader  notification-nav">
+    <button type="button" class="navbar-toggle">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <div class="top-search">
+        <a href="/" class="navbar-brand ">QA</a>
+        <div class="btn-group" title="Search pages...">
+            <div class="dropdown">
+                <div class=" col-md-4 col-sm-4 col-xs-4 input-group pull-left dropdown-toggle" data-toggle="dropdown" aria-expanded="true" style="padding:7px 0;">
+                    <input type="text" class=" form-control input-sm" data-bind="value:searchText,valueUpdate: 'afterkeydown',event: { keypress: searchStart($element.value,event)}" placeholder="Friends, Places, values..." id="query" name="query" value="">
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-sm btn-primary search-Header"><span class="fa fa-search"></span></button>
+                    </div>
+                </div>
+                <div class="dropdown-menu pull-left" id="search-result">
+                    @Html.Partial("~/Views/Shared/Header/SearchHeader.cshtml")
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-toolbar pull-right">
+        <div class="btn-group" title="My Profile" data-bind="with:$root.koUser">
+            <a class="btn btn-notification" data-bind="attr: { href: '/'+Name()}">
+                <img class="headerImg" data-bind="attr: { src: Picture()}" />
+            </a>
+        </div>
+        <div class="btn-group find-friends" title="Search">
+            <a class="btn btn-header btn-notification text-only" href="/SearchFriends">
+                Find Friends
+            </a>
+        </div>
+
+        <div class="btn-group search-li" title="Search">
+            <a class="btn btn-notification">
+                <i class="fa fa-search">
+                </i>
+            </a>
+        </div>
+        <div class="btn-group" title="Notifications">
+            <div class="dropdown">
+                <a class="btn btn-notification dropdown-toggle" data-toggle="dropdown" data-bind="event: { click: function() { headerRead(1) } }">
+                    <i class="fa fa-globe">
+                        <span class="notify-tip" data-bind="visible:notificationCount() > 0,text: notificationCount()">
+                        </span>
+                    </i>
+                </a>
+                <div class="drop"></div>
+                <div class="dropdown-menu pull-right ">
+                    @Html.Partial("~/Views/Shared/Header/Notifications.cshtml")
+                </div>
+            </div>
+        </div>
+        <div class="btn-group" title="Messages" data-bind="event: { click: function() { headerRead(2) } }">
+            <div class="dropdown">
+                <a class="btn btn-notification dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-comments">
+                        <span class="notify-tip" data-bind="visible:messageCount() > 0,text: messageCount()">
+                        </span>
+                    </i>
+                </a>
+                <div class="drop"></div>
+                <div class="dropdown-menu pull-right ">
+                    @Html.Partial("~/Views/Shared/Header/Messages.cshtml")
+                </div>
+            </div>
+        </div>
+        <div class="btn-group" title="Friend Request" data-bind="event: { click: function() { headerRead(3) } }">
+            <div class="dropdown">
+                <a class="btn btn-notification dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-users">
+                        <span class="notify-tip" data-bind="visible:requestCount() > 0,text: requestCount()">
+                        </span>
+                    </i>
+                </a>
+                <div class="drop"></div>
+                <div class="dropdown-menu pull-right ">
+                    @Html.Partial("~/Views/Shared/Header/FriendRequest.cshtml")
+                </div>
+            </div>
+        </div>
+        <div class="btn-group" title="Account">
+            <div class="dropdown">
+                <a class="btn btn-notification dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-lock"></i><span class="caret"></span>
+                </a>
+                <div class="drop"></div>
+                <ul class="dropdown-menu  pull-right">
+                    <li>
+                        <span class="notify-h">Account</span>
+                    </li>
+                    <li>
+
+                        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <a href="#" class="logout" data-bind="    click: onDisconnect">Log off</a>
+                        }
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>

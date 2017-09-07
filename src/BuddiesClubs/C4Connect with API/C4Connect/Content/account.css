@@ -1,0 +1,128 @@
+﻿.account-top-menu {
+    background-color: #ddd;
+    border-bottom: none;
+}
+
+.sign-up-header .left-section .slogan {
+    color: #0e385f;
+    line-height: 29px;
+    font-weight: bold;
+}
+
+.sign-up-header .col-sm-3, .account-body-menu .border-box .col-sm-3 {
+    width: 25% !important;
+}
+
+.account-top-menu .navbar-brand {
+    padding: 35px 15px;
+}
+
+.account-top-menu .navbar-form {
+    margin-right: 0;
+}
+
+.account-body-menu.body-content .border-box {
+    margin-right: auto;
+    margin-left: auto;
+    float: none;
+    margin-top: 60px;
+    padding: 20px 12px 0;
+}
+
+.account-body-menu .account-title {
+    margin: 25px 20px 0px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 1px #dfdfdf solid;
+    padding-bottom: 5px;
+}
+
+.account-body-menu .border-box .form-horizontal {
+    padding: 10px 15px 10px 71px;
+    overflow: visible;
+}
+
+.border-box {
+    margin-bottom: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 10px;
+}
+
+@media(max-width: 435px) {
+    .account-body-menu .border-box .form-horizontal {
+        padding: 10px 15px 10px 0px;
+    }
+}
+
+@media(max-width: 768px) {
+    .account-top-menu .container {
+        width: 280px;
+    }
+
+    .account-top-menu .navbar-form {
+        margin-left: 0;
+    }
+
+    .container .sign-up-header {
+        width: 265px;
+        padding-right: 0px;
+        margin: auto;
+    }
+
+    .account-top-menu .container br {
+        content: " ";
+    }
+
+    .sign-up-header .left-section .slogan {
+        line-height: 1.1;
+        font-size: 16px;
+    }
+
+    .sign-up-header .col-md-6 {
+        padding: 0px;
+    }
+
+    .sign-up-header .user_register_title {
+        margin: 25px 20px 0px 15px;
+    }
+
+    .sign-up-header .col-xs-1, .account-body-menu .border-box .col-xs-1 {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+.header {
+    margin-top: -50px;
+    padding: 10px;
+    background-color: #F2F2F2;
+}
+
+.user_register_title {
+    margin: 25px 20px 0px 50px;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 1px #dfdfdf solid;
+    padding-bottom: 5px;
+}
+
+.user_register_intro {
+    padding-top: 10px;
+}
+
+.extra_info, .extra_info_link {
+    color: #808080;
+    font-size: 12px;
+    padding: 4px 0px 4px 0px;
+}
+
+.main_break {
+    padding: 10px 15px 10px 15px;
+    overflow: visible;
+}

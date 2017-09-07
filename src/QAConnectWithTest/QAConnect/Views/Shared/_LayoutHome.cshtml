@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutIn.cshtml";
+}
+<div class="left-pane col-md-2 col-sm-2 col-xs-2" data-bind="with:koLeftHome">
+    @Html.Partial("LeftPane")
+</div>
+<div class="mid-pane col-md-5 col-sm-6  col-xs-9">
+    @RenderBody()
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Arshad Khan</p>
+    </footer>
+</div>
+<div class="right-pane col-md-5 col-sm-4 col-xs-4">
+    @Html.Partial("RightPane")
+</div>
+@section Home
+{
+    @RenderSection("Post", required: false)
+    @Styles.Render("~/Content/home")
+    @Scripts.Render("~/bundles/home")
+}

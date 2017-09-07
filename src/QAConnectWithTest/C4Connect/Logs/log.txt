@@ -1,0 +1,70 @@
+ERROR 2017-01-23 09:11:14,336 [13] ExceptionService       - Error getting page posts list
+Type: System.FormatException
+Message: Index (zero based) must be greater than or equal to zero and less than the size of the argument list.
+Application: mscorlib
+Class: System.Text.StringBuilder
+Member: System.Text.StringBuilder AppendFormat(System.IFormatProvider, System.String, System.Object[])
+HelpLink: 
+StackTrace:    at System.Text.StringBuilder.AppendFormat(IFormatProvider provider, String format, Object[] args)
+   at System.String.Format(IFormatProvider provider, String format, Object[] args)
+   at System.String.Format(String format, Object[] args)
+   at DataRepository.DataAccess.GetPosts(Int64 UserID, Int64 PageID, Int32 PageNumber, Int32 PageSize) in d:\c4connect\QAConnect\QAConnect\DataRepository\DataAccess.cs:line 709
+   at BusinessLogic.PostAccess.GetPosts(Int64 UserID, Int32 PageType, Int64 PageID, Int32 PageNumber, Int32 PageSize) in d:\c4connect\QAConnect\QAConnect\BusinessLogic\PostAccess.cs:line 66
+   at C4Connect.API.PostController.<GetPosts>d__11.MoveNext() in d:\c4connect\QAConnect\QAConnect\C4Connect\API\PostController.cs:line 191
+
+ERROR 2017-01-23 09:23:25,291 [19] ExceptionService       - Error getting page posts list
+Type: System.FormatException
+Message: Index (zero based) must be greater than or equal to zero and less than the size of the argument list.
+Application: mscorlib
+Class: System.Text.StringBuilder
+Member: System.Text.StringBuilder AppendFormat(System.IFormatProvider, System.String, System.Object[])
+HelpLink: 
+StackTrace:    at System.Text.StringBuilder.AppendFormat(IFormatProvider provider, String format, Object[] args)
+   at System.String.Format(IFormatProvider provider, String format, Object[] args)
+   at System.String.Format(String format, Object[] args)
+   at DataRepository.DataAccess.GetPosts(Int64 UserID, Int64 PageID, Int32 PageNumber, Int32 PageSize) in d:\c4connect\QAConnect\QAConnect\DataRepository\DataAccess.cs:line 709
+   at BusinessLogic.PostAccess.GetPosts(Int64 UserID, Int32 PageType, Int64 PageID, Int32 PageNumber, Int32 PageSize) in d:\c4connect\QAConnect\QAConnect\BusinessLogic\PostAccess.cs:line 66
+   at C4Connect.API.PostController.<GetPosts>d__11.MoveNext() in d:\c4connect\QAConnect\QAConnect\C4Connect\API\PostController.cs:line 191
+
+ERROR 2017-01-23 09:23:58,443 [16] ExceptionService       - Error getting page posts list
+Type: System.FormatException
+Message: Index (zero based) must be greater than or equal to zero and less than the size of the argument list.
+Application: mscorlib
+Class: System.Text.StringBuilder
+Member: System.Text.StringBuilder AppendFormat(System.IFormatProvider, System.String, System.Object[])
+HelpLink: 
+StackTrace:    at System.Text.StringBuilder.AppendFormat(IFormatProvider provider, String format, Object[] args)
+   at System.String.Format(IFormatProvider provider, String format, Object[] args)
+   at System.String.Format(String format, Object[] args)
+   at DataRepository.DataAccess.GetPosts(Int64 UserID, Int64 PageID, Int32 PageNumber, Int32 PageSize) in d:\c4connect\QAConnect\QAConnect\DataRepository\DataAccess.cs:line 709
+   at BusinessLogic.PostAccess.GetPosts(Int64 UserID, Int32 PageType, Int64 PageID, Int32 PageNumber, Int32 PageSize) in d:\c4connect\QAConnect\QAConnect\BusinessLogic\PostAccess.cs:line 66
+   at C4Connect.API.PostController.<GetPosts>d__11.MoveNext() in d:\c4connect\QAConnect\QAConnect\C4Connect\API\PostController.cs:line 191
+
+ERROR 2017-01-23 09:27:33,762 [17] ExceptionService       - Error getting page posts list
+Type: System.FormatException
+Message: Index (zero based) must be greater than or equal to zero and less than the size of the argument list.
+Application: mscorlib
+Class: System.Text.StringBuilder
+Member: System.Text.StringBuilder AppendFormat(System.IFormatProvider, System.String, System.Object[])
+HelpLink: 
+StackTrace:    at System.Text.StringBuilder.AppendFormat(IFormatProvider provider, String format, Object[] args)
+   at System.String.Format(IFormatProvider provider, String format, Object[] args)
+   at System.String.Format(String format, Object[] args)
+   at DataRepository.DataAccess.GetPosts(Int64 UserID, Int64 PageID, Int32 PageNumber, Int32 PageSize) in d:\c4connect\QAConnect\QAConnect\DataRepository\DataAccess.cs:line 709
+   at BusinessLogic.PostAccess.GetPosts(Int64 UserID, Int32 PageType, Int64 PageID, Int32 PageNumber, Int32 PageSize) in d:\c4connect\QAConnect\QAConnect\BusinessLogic\PostAccess.cs:line 66
+   at C4Connect.API.PostController.<GetPosts>d__11.MoveNext() in d:\c4connect\QAConnect\QAConnect\C4Connect\API\PostController.cs:line 191
+
+ERROR 2017-01-23 09:28:01,549 [31] ExceptionService       - Error getting page posts list
+Type: System.FormatException
+Message: Index (zero based) must be greater than or equal to zero and less than the size of the argument list.
+Application: mscorlib
+Class: System.Text.StringBuilder
+Member: System.Text.StringBuilder AppendFormat(System.IFormatProvider, System.String, System.Object[])
+HelpLink: 
+StackTrace:    at System.Text.StringBuilder.AppendFormat(IFormatProvider provider, String format, Object[] args)
+   at System.String.Format(IFormatProvider provider, String format, Object[] args)
+   at System.String.Format(String format, Object[] args)
+   at DataRepository.DataAccess.GetPosts(Int64 UserID, Int64 PageID, Int32 PageNumber, Int32 PageSize) in d:\c4connect\QAConnect\QAConnect\DataRepository\DataAccess.cs:line 709
+   at BusinessLogic.PostAccess.GetPosts(Int64 UserID, Int32 PageType, Int64 PageID, Int32 PageNumber, Int32 PageSize) in d:\c4connect\QAConnect\QAConnect\BusinessLogic\PostAccess.cs:line 66
+   at C4Connect.API.PostController.<GetPosts>d__11.MoveNext() in d:\c4connect\QAConnect\QAConnect\C4Connect\API\PostController.cs:line 191
+

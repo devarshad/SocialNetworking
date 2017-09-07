@@ -1,0 +1,52 @@
+﻿/*Left pane*/
+.well > .nav.nav-list > li {
+    padding-bottom: 15px;
+}
+
+.nav > li > a {
+    padding: 3px 0px;
+}
+
+.truncate {
+    width: 168px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+
+ol > li {
+    position: relative;
+    margin: 0 0 6px 2em;
+    list-style: none;
+}
+
+ol {
+    counter-reset: li;
+    padding-left: 0;
+}
+
+    ol > li:before {
+        content: counter(li);
+        counter-increment: li;
+        position: absolute;
+        /* top: -2px; */
+        left: -2em;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 2em;
+        margin-right: 8px;
+        padding: 4px;
+        /* border-top: 2px solid #666; */
+        color: #1F1D1D;
+        /* background: #666; */
+        font-weight: bold;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        text-align: center;
+    }
+
+
+ul {
+    padding-left: 0px;
+}

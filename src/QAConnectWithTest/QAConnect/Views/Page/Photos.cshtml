@@ -1,0 +1,20 @@
+﻿<div class="profile-detail partialView-container" data-bind="with:koLeftPage">
+    <div class="profile-pane">
+        <div class="profile-pane-header">
+            <p>
+                Photos...
+            </p>
+        </div>
+        <div data-bind="if:photos().length==0">
+            <a class="clearfix">
+                <span class="empty-notification">No photos available</span>
+            </a>
+        </div>
+        <ul data-bind="foreach:photos" class="list-inline">
+            <li data-bind="event: { click: function() { loadSlide(Avtar,2,Detail) } }">
+                <img class="Avtar" data-bind="attr: { src: Avtar}" alt="Image">
+                <a class="Title truncate" data-bind="text:Detail,attr: { href: Name}"></a>
+            </li>
+        </ul>
+    </div>
+</div>

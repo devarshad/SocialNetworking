@@ -1,0 +1,32 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutIn.cshtml";
+}
+@*@Styles.Render("~/bundles/page")
+@Styles.Render("~/bundles/post")*@
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="col-md-9 col-sm-9 col-xs-9">
+        <div data-bind="with:koPage">
+            @Html.Partial("WallPaper")
+        </div>
+        <div class="left-pane profile-detail col-md-5 col-sm-5 col-xs-2" data-bind="with:koLeftPage">
+            @Html.Partial("~/Views/Page/Detail.cshtml")
+        </div>
+        <div class=" mid-pane col-md-7 col-sm-7 col-xs-12">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
+    </div>
+    <div class="right-pane col-md-3 col-sm-3 col-xs-3">
+        @Html.Partial("RightPane")
+    </div>
+</div>
+@section Page
+{
+    @RenderSection("Post", required: false)
+    @Styles.Render("~/Content/page")
+    @Scripts.Render("~/bundles/page")
+}

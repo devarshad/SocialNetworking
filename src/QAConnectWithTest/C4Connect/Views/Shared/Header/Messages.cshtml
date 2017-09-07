@@ -1,0 +1,36 @@
+﻿<span class="notify-h">Messages</span>
+<div data-bind="if:messages().length==0">
+    <a class="clearfix">
+        <span class="empty-notification">No new messages</span>
+    </a>
+</div>
+<div class="dropdown-menu-container" data-bind="foreach: messages,event: { scroll: scrolled(2,event)}">
+    <a class="msg-container clearfix">
+        <span class="notification-thumb">
+            <img data-bind="attr: { src: Avatar }" width="50" height="50" alt="user-thumb">
+        </span>
+        <span class="notification-intro">
+            <span data-bind="text: Name"></span>
+            <span class="notify-info">
+                <span class="truncate" data-bind="html:Text"></span>
+                <span data-bind="text:CreatedOn"></span>
+            </span>
+        </span>
+        @*<strong>Files </strong>*@
+    </a>
+</div>
+<div class="dropdown-menu-container" data-bind="visible: pendingRequest">
+    <a class="msg-container clearfix">
+        <span class="notification-thumb">
+            <i class="fa fa-spinner" style="font-size:20px"></i>
+            @*<img src="http://rniemeyer.github.com/KnockMeOut/Images/loading.gif" />*@
+        </span>
+    </a>
+</div>
+
+<div data-bind="if:messageLast">
+    <p>No more records available</p>
+</div>
+<span class="PopUpfooter viewmore">
+    <a href="/Messages">See All messages</a>
+</span>

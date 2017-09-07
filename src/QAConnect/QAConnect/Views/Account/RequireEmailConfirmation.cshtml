@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Require Email Confirmation";
+}
+
+<div class="col-md-6 border-box">
+    <div class="account-title">Email confirmation required</div>
+    @using (Html.BeginForm("RequireEmailConfirmation", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            <label for="inputEmail" class="control-label">
+                Thank you for registering to us.
+                Please check your email and activate your account.
+            </label>
+        </div>
+    }
+</div>

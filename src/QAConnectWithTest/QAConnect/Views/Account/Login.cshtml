@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Log in";
+}
+@model QAConnect.Models.LoginViewModel
+<div class="col-md-6 border-box">
+    <div class="account-title">Login</div>
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <label for="inputEmail3" class="control-label">User Name:</label>
+            @Html.TextBoxFor(x => x.UserName, htmlAttributes: new { @class = "form-control input-sm", @placeholder = "Enter User Name" })
+        </div>
+        <div class="form-group">
+            <label for="inputEmail3" class="control-label">Password:</label>
+            @Html.PasswordFor(x => x.Password, htmlAttributes: new { @class = "form-control input-sm", @placeholder = "Enter User Password" })
+        </div>
+        <div class="form-group">
+            <label for="RememberMe">
+                @Html.EditorFor(model => model.RememberMe)
+                Keep me logged in?
+            </label>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-sm">Log In</button> or
+            <label><a href="~/Account/Register">Sign up</a></label>
+        </div>
+        <div class="form-group">
+            <label><a href="~/Account/ForgotPassword">Forgot your password?</a></label>
+        </div>
+    }
+</div>
+@section scriptAccountLogin
+{
+    <script>
+        $('.sign-in-header').hide();
+    </script>
+}

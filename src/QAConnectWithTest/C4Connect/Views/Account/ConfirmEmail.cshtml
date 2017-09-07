@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Confirm Email";
+}
+
+
+<div class="col-md-6 border-box">
+    <div class="account-title">Email confirmation success</div>
+    @using (Html.BeginForm("ConfirmEmail", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            <label for="inputEmail" class="control-label">
+                Thank you for confirming your email. Please @Html.ActionLink("Click here to Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+            </label>
+        </div>
+    }
+</div>

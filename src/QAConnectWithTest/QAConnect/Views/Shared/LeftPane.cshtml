@@ -1,0 +1,236 @@
+﻿<div class="well" style="max-width: 340px;">
+    <ul class="nav nav-list">
+        <li data-bind="with:$root.koHeader">
+            <span>
+                <img style="width: 20px;height: 20px;" data-bind="attr: { src: Picture}" />
+                <a class="truncate" style=" width: 105px;  font-size: 11px;font-weight:bold;    vertical-align: middle;" data-bind="attr:{href:'/'+Name()},text:FullName"></a>
+            </span>
+        </li>
+        <li>
+            <a class="truncate" style=" width: 105px;  font-size: 11px;font-weight:bold;    vertical-align: middle;" href="/EditProfile">Edit Profile</a>
+        </li>
+        <li>
+            <ul class="nav nav-list">
+                <li>
+                    <a href="/Messages">Messages</a>
+                </li>
+                <li>
+                    <a href="#">Polls</a>
+                </li>
+                @*<li>
+                        <a data-bind="attr:{href:'/Friends/'+$root.koPage.ID()+'/'+$root.koPage.PageType()}">Friends</a>
+                    </li>*@
+            </ul>
+        </li>
+
+        <li>
+            <a data-toggle="collapse" data-target=".nav-list.events" style="cursor:pointer">Events</a>
+            <ul class="nav nav-list events collapse" style="padding-left:15px;">
+                <li>
+                    <a href="#" data-bind="click:addGroup">Create Event</a>
+                </li>
+            </ul>
+            <ul class="nav nav-list events collapse" data-bind="foreach:events" style="padding-left:15px;">
+                <li><a href="#" data-bind="attr:{href:'Event/'+Name},text:FullName"></a></li>
+            </ul>
+        </li>
+        <li>
+            <a data-toggle="collapse" data-target=".nav-list.groups" style="cursor:pointer">Groups</a>
+            <ul class="nav nav-list groups collapse" style="padding-left:15px;">
+                <li>
+                    <a href="#" data-bind="click:addGroup">Create Group</a>
+                </li>
+            </ul>
+            <ul class="nav nav-list groups collapse" data-bind="foreach:groups" style="padding-left:15px;">
+                <li><a href="#" data-bind="attr:{href:'Group/'+Name},text:FullName"></a></li>
+            </ul>
+        </li>
+        <li><a href="/">Help</a></li>
+    </ul>
+</div>
+
+@*<img class="ProfileAvtar" src="">
+    <ul class="nav nav-pills nav-stacked">
+        <li><a href="#">News Feed</a></li>
+        <li><a href="#">Messages</a></li>
+        <li><a href="#">Events</a></li>
+    </ul>
+    <div id="left" class="content_column">
+
+            <div id="nb_name">
+                <div class="nb_name_image">
+                    <a href="http://social.worldfloat.com/index.php?do=/profile-15556/" title="a"><img src="http://social.worldfloat.com/file/pic/user/2015/04/22b4d321256968137be42a6d5912b12b_50_square.png" alt="a" height="50" width="50"></a>
+                </div>
+                <div class="nb_name_info">
+                    <a href="http://social.worldfloat.com/index.php?do=/profile-15556/" class="nb_name_link">a</a>
+                    <div class="nb_name_edit">
+                        <a href="http://social.worldfloat.com/index.php?do=/user/profile/">Edit Profile</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="nb_favorites" class="block">
+                <div class="title">
+                    <a href="#" class="nb_edit_block_title">Edit</a>
+                    Favorites
+                </div>
+                <div id="nb_main_menu">
+                    <ul>
+
+                        <li rel="menu5">
+                            <a href="http://social.worldfloat.com/index.php?do=/" class=" menu_is_selected ajax_link">
+                                Home
+                            </a>
+                        </li>
+
+                        <li rel="menu47">
+                            <a href="http://social.worldfloat.com/index.php?do=/friend/" class="ajax_link">
+                                Friends
+                            </a>
+                        </li>
+
+                        <li rel="menu22">
+                            <a href="http://social.worldfloat.com/index.php?do=/user/browse/" class="ajax_link">
+                                Members
+                            </a>
+                        </li>
+
+                        <li rel="menu62">
+                            <a href="http://social.worldfloat.com/index.php?do=/pages/" class="ajax_link">
+                                Pages
+                            </a>
+                        </li>
+
+                        <li rel="menu64">
+                            <a href="http://social.worldfloat.com/index.php?do=/photo/" class="ajax_link">
+                                Photos
+                            </a>
+                        </li>
+
+                        <li rel="menu79">
+                            <a href="http://social.worldfloat.com/index.php?do=/video/" class="ajax_link">
+                                Videos
+                            </a>
+                        </li>
+
+                        <li rel="menu40">
+                            <a href="http://social.worldfloat.com/index.php?do=/event/" class="ajax_link">
+                                Events
+                            </a>
+                        </li>
+
+                        <li rel="menu55">
+                            <a href="http://social.worldfloat.com/index.php?do=/marketplace/" class="ajax_link">
+                                Marketplace
+                            </a>
+                        </li>
+
+                        <li rel="menu1" style="display:none;">
+                            <a href="http://social.worldfloat.com/index.php?do=/apps/" class="ajax_link">
+                                Apps
+                            </a>
+                        </li>
+
+
+
+                    </ul>
+                    <a href="#" class="js_view_more_features js_view_more" id="js_view_more_features" rel="more">View More</a>
+                    <a href="#" class="js_view_more_features js_view_less" id="js_view_less_features" rel="less" style="display:none;">View Less</a>
+                    <a href="#" class="js_add_more_menus" style="display:none;">Add More</a>
+                    <a href="#" class="js_done_edit_mode" style="display:none;">Done</a>
+                </div>
+            </div>
+
+
+
+            <div class="block" id="js_block_border_friend_mini">
+                <div class="title ">
+                    <div class="js_edit_header_bar js_edit_header_hover" style="display:none;">
+                        <a href="#" onclick="if (confirm('Are you sure?')) { $(this).parents('.block:first').remove();
+                                $.ajaxCall('core.hideBlock', 'sController=' + oParams['sController'] + '&amp;type_id= friend_mini&amp;block_id=' + $(this).parents('.block:first').attr('id')); } return false;" title="Remove this Block">
+                            <img src="http://social.worldfloat.com/theme/frontend/default/style/default/image/misc/application_delete.png" alt="" class="v_middle">
+                        </a>
+                    </div>
+
+                    Friends Online (<span id="js_total_block_friends_onlin">0</span>)
+                </div>
+                <div class="content">
+                    <div class="extra_info">
+                        No friends online.
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+            <div class="block" id="js_block_border_log_login">
+                <div class="title ">
+                    <div class="js_edit_header_bar js_edit_header_hover" style="display:none;">
+                        <a href="#" onclick="if (confirm('Are you sure?')) { $(this).parents('.block:first').remove();
+                                $.ajaxCall('core.hideBlock', 'sController=' + oParams['sController'] + '&amp;type_id= log_login&amp;block_id=' + $(this).parents('.block:first').attr('id')); } return false;" title="Remove this Block">
+                            <img src="http://social.worldfloat.com/theme/frontend/default/style/default/image/misc/application_delete.png" alt="" class="v_middle">
+                        </a>
+                    </div>
+
+                    Recent Logins
+                </div>
+                <div class="content">
+                    <div class="block_listing_inline">
+                        <ul>
+
+                            <li>
+                                <a href="http://social.worldfloat.com/index.php?do=/profile-124248/" title="Deandre Euler"><img src="http://social.worldfloat.com/theme/frontend/default/style/default/image/noimage/female_profile_50.png" alt="Deandre Euler" height="32" width="32" class="js_hover_title"></a>
+                            </li>
+
+                            <li>
+                                <a href="http://social.worldfloat.com/index.php?do=/profile-123402/" title="Patricia Driver"><img src="http://social.worldfloat.com/theme/frontend/default/style/default/image/noimage/female_profile_50.png" alt="Patricia Driver" height="32" width="32" class="js_hover_title"></a>
+                            </li>
+
+                            <li>
+                                <a href="http://social.worldfloat.com/index.php?do=/profile-117390/" title="Georgina Coates"><img src="http://social.worldfloat.com/theme/frontend/default/style/default/image/noimage/female_profile_50.png" alt="Georgina Coates" height="32" width="32" class="js_hover_title"></a>
+                            </li>
+
+                            <li>
+                                <a href="http://social.worldfloat.com/index.php?do=/profile-125082/" title="Eva Champ"><img src="http://social.worldfloat.com/theme/frontend/default/style/default/image/noimage/profile_50.png" alt="Eva Champ" height="32" width="32" class="js_hover_title"></a>
+                            </li>
+
+                            <li>
+                                <a href="http://social.worldfloat.com/index.php?do=/profile-124291/" title="Gustavo Bogan"><img src="http://social.worldfloat.com/theme/frontend/default/style/default/image/noimage/profile_50.png" alt="Gustavo Bogan" height="32" width="32" class="js_hover_title"></a>
+                            </li>
+
+                            <li>
+                                <a href="http://social.worldfloat.com/index.php?do=/profile-124400/" title="Chasity Kong"><img src="http://social.worldfloat.com/theme/frontend/default/style/default/image/noimage/profile_50.png" alt="Chasity Kong" height="32" width="32" class="js_hover_title"></a>
+                            </li>
+
+                            <li>
+                                <a href="http://social.worldfloat.com/index.php?do=/profile-125274/" title="Ken Villalobos"><img src="http://social.worldfloat.com/theme/frontend/default/style/default/image/noimage/female_profile_50.png" alt="Ken Villalobos" height="32" width="32" class="js_hover_title"></a>
+                            </li>
+
+                            <li>
+                                <a href="http://social.worldfloat.com/index.php?do=/profile-124251/" title="Gilberto Smythe"><img src="http://social.worldfloat.com/theme/frontend/default/style/default/image/noimage/female_profile_50.png" alt="Gilberto Smythe" height="32" width="32" class="js_hover_title"></a>
+                            </li>
+
+                            <li>
+                                <a href="http://social.worldfloat.com/index.php?do=/profile-124626/" title="Velda Strope"><img src="http://social.worldfloat.com/theme/frontend/default/style/default/image/noimage/female_profile_50.png" alt="Velda Strope" height="32" width="32" class="js_hover_title"></a>
+                            </li>
+
+                            <li>
+                                <a href="http://social.worldfloat.com/index.php?do=/profile-124289/" title="David Mennell"><img src="http://social.worldfloat.com/theme/frontend/default/style/default/image/noimage/female_profile_50.png" alt="David Mennell" height="32" width="32" class="js_hover_title"></a>
+                            </li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+            <a href="http://social.worldfloat.com/index.php?do=/core/index-member/customize/" class="no_ajax_link nb_customize_dash">Customize Dashboard</a>
+
+
+
+        </div>*@

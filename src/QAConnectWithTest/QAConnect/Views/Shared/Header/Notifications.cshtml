@@ -1,0 +1,30 @@
+﻿<span class="notify-h">Notifications</span>
+<div data-bind="if:notifications().length==0">
+    <a class="clearfix">
+        <span class="empty-notification">No new notifications</span>
+    </a>
+</div>
+
+<div class="dropdown-menu-container" data-bind="foreach: notifications,event: { scroll: scrolled(1,event) }">
+    <a class="msg-container clearfix hashtag" data-bind="attr: { href: '#'+Link }">
+        <span class="notification-thumb">
+            <img data-bind="attr: { src: PostedByAvatar }" alt="user-thumb">
+        </span>
+        <span class="notification-intro" data-bind="html: Text"><span class="notify-time"> 3 Hours Ago </span></span>
+        @*<strong>Files </strong>*@
+    </a>
+</div>
+<div class="dropdown-menu-container" data-bind="visible: pendingRequest">
+    <a class="msg-container clearfix">
+        <span class="notification-thumb">
+            <i class="fa fa-spinner" style="font-size:20px"></i>
+        </span>
+    </a>
+</div>
+
+<div data-bind="if:notificationLast">
+    <p>No more records available</p>
+</div>
+<span class="PopUpfooter viewmore">
+    <a href="/Notifications">See All Notifications</a>
+</span>
